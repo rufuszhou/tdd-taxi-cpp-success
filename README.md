@@ -1,7 +1,7 @@
 # TDD-Taxi-Cpp
 
-docker build -t ubuntu-build-esssential .
-docker run -it ubuntu-build-esssential
+docker build -t ubuntu-build-essential .
+docker run -it ubuntu-build-essential
 mkdir build
 cd build
 cmake ..
