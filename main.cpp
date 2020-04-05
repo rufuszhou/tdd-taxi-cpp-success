@@ -39,6 +39,7 @@ int main(int argc, char* argv[])
         cerr<< "Failed to open file: " << argv[1] << endl;
         return 1;
     }
+    input_file.close();
 
     return 0;
 }
