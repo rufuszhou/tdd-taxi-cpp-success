@@ -1,36 +1,32 @@
-#include <iostream> 
+#include <iostream>
 #include <cmath>
 
 #include "trip.h"
 
-BasicTrip::BasicTrip() :
-    m_distance(0), m_waittime(0)
-{
-    //ctor
+BasicTrip::BasicTrip() : m_distance(0), m_waittime(0) {
+    // ctor
 }
 
 
-BasicTrip::BasicTrip(unsigned int distance_in_km, unsigned int waittime_in_minute) :
-    m_distance(distance_in_km), m_waittime(waittime_in_minute)
-{
-    //ctor
+BasicTrip::BasicTrip(unsigned int distance_in_km,
+    unsigned int waittime_in_minute) :
+        m_distance(distance_in_km),
+        m_waittime(waittime_in_minute) {
+    // ctor
 }
 
-BasicTrip::BasicTrip(const BasicTrip& r):m_distance(r.m_distance), m_waittime(r.m_waittime)
-{
-
+BasicTrip::BasicTrip(const BasicTrip& r) {
+    *this = r;
 }
 
-BasicTrip& BasicTrip::operator=(const BasicTrip& t)
-{
+BasicTrip& BasicTrip::operator=(const BasicTrip& t) {
     m_distance = t.m_distance;
     m_waittime = t.m_waittime;
     return *this;
 }
 
-BasicTrip::~BasicTrip()
-{
-    //dtor
+BasicTrip::~BasicTrip() {
+    // dtor
 }
 
 
@@ -41,8 +37,7 @@ BasicTrip::~BasicTrip()
 4. 停车等待时加收每分钟0.25元。
 5. 最后计价的时候司机会四舍五入只收到元。
 */
-unsigned int BasicTrip::calculate()
-{
+unsigned int BasicTrip::calculate() {
     #define BASE_DISTANCE   2
     #define LONG_DISTANCE   8
 

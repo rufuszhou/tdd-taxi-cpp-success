@@ -18,8 +18,7 @@ protected:
     virtual unsigned int calculate() = 0;
 };
 
-class BasicTrip : public Trip
-{
+class BasicTrip : public Trip {
 public:
     BasicTrip();
     BasicTrip(unsigned int distance_in_km, unsigned int waittime_in_minute);
@@ -32,11 +31,6 @@ public:
     inline void set_distance(unsigned int d) { m_distance = d; }
     inline void set_waittime(unsigned int w) { m_waittime = w; }
 
-    virtual inline std::string to_string() {
-        std::stringstream ss;
-        ss << "收费" << calculate() << "元";
-        return ss.str();
-    }
 protected:
     virtual unsigned int calculate();
 

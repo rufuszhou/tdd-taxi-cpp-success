@@ -16,7 +16,7 @@ public:
 
     virtual bool read_records(std::string path_to_records);
     virtual void clear_records();
-    
+
     virtual std::string to_string();
 
 protected:

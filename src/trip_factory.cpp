@@ -4,9 +4,9 @@
 #include "trip_factory.h"
 
 
-// This function can be extended to create different types of Trip object based on the input string.
-Trip* TripFactory::create(std::string record_str) 
-{
+// This function can be extended to
+//    create different types of Trip object based on the input string.
+Trip* TripFactory::create(std::string record_str) {
 /*
 1公里,等待0分钟
 3公里,等待0分钟
@@ -21,7 +21,9 @@ Trip* TripFactory::create(std::string record_str)
     std::string::size_type wait_start = record_str.find("等待");
     std::string::size_type wait_end = record_str.find("分钟");
 
-    if(km_index == std::string::npos || wait_start == std::string::npos || wait_end == std::string::npos) {
+    if ( km_index == std::string::npos ||
+            wait_start == std::string::npos ||
+            wait_end == std::string::npos) {
         std::cout << "1:" << km_index << wait_start << wait_end << std::endl;
         return nullptr;
     }
@@ -38,7 +40,7 @@ Trip* TripFactory::create(std::string record_str)
     std::string wait_str = record_str.substr(wait_start, wait_end - wait_start);
     wait_time = std::stol(wait_str);
 
-    t = new (std::nothrow) BasicTrip(distance, wait_time); 
+    t = new (std::nothrow) BasicTrip(distance, wait_time);
 
     return t;
 }

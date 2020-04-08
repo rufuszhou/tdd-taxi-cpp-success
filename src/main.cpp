@@ -1,11 +1,8 @@
 #include <iostream>
 #include "trips.h"
 
-
-int main(int argc, char* argv[])
-{
-    if (argc != 2)
-    {
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
         std::cerr << "Usage: tdd_taxi_cpp path_to_input_file" << std::endl;
         return 1;
     }
