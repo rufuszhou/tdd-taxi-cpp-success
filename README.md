@@ -1,4 +1,13 @@
 # TDD-Taxi-Cpp  
+## Kata介绍
+
+1. 通过文本文件向应用程序提供输入数据 testData.txt (`resource/testData.txt`)。
+2. 在 `main.cpp` 中**集成**你自己所写的代码，并将结果打印至标准输出(stdout)。
+    * 你写的程序将把输入数据文件作为参数, 加载此文件并读取文件内的测试数据，并对每条测试数据计算结果。
+    * 将所有计费结果拼接并使用 `\n` 分割，然后保存到 receipt 变量中。
+3. 请按照提示把你的的代码逻辑写在 `taxi` 模块之中，测试代码写在 `tests` 目录下，充分做好单元测试。
+4. 不得修改 `requirements.json` 文件和 `.pylintrc` 等配置文件。
+5. 考试环境使用 Python 3.x 版本。
 
 **搭建c++开发环境**
 1. 下载并安装Docker Desktop: https://www.docker.com/products/docker-desktop
