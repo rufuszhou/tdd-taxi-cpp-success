@@ -92,11 +92,13 @@ make
 
 **运行单元测试**：
 ```
+cd  build
 make test
 ```
 
 **运行单元测试并得到代码覆盖率**：
 ```
+cd build
 make unit_test_coverage
 ```
 

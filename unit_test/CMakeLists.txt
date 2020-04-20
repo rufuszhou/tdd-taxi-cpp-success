@@ -19,7 +19,7 @@ append_coverage_compiler_flags()
 
 setup_target_for_coverage_lcov(
     NAME unit_test_coverage_html                # New target name
-    EXECUTABLE unit_test                        # Executable in PROJECT_BINARY_DIR
+    EXECUTABLE unit_test --gtest_output=xml     # Executable in PROJECT_BINARY_DIR
     DEPENDENCIES unit_test                      # Dependencies to build first
     BASE_DIRECTORY "../"                        # Base directory for report
                                                 #  (defaults to PROJECT_SOURCE_DIR)
@@ -30,7 +30,7 @@ setup_target_for_coverage_lcov(
 
 setup_target_for_coverage_gcovr(
     NAME unit_test_coverage                     # New target name
-    EXECUTABLE unit_test                        # Executable in PROJECT_BINARY_DIR
+    EXECUTABLE unit_test --gtest_output=xml     # Executable in PROJECT_BINARY_DIR
     DEPENDENCIES unit_test                      # Dependencies to build first
     BASE_DIRECTORY "../"                        # Base directory for report
                                                 #  (defaults to PROJECT_SOURCE_DIR)
