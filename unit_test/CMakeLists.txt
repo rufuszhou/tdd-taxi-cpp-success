@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
-find_package(GTest REQUIRED PATH_SUFFIXES /mingw64/)
+SET(CMAKE_PREFIX_PATH "/mingw64" ${CMAKE_PREFIX_PATH})
+find_package(GTest REQUIRED)
 include(GoogleTest)
 include_directories(../src  ${GTEST_INCLUDE_DIRS})
 
