@@ -62,20 +62,20 @@ warning: for example close your terminal window instead of calling exit
 mkdir build
 cd build
 cmake ..
-make
+mingw32-make
 ```
 注意： **编译过程中已经集成了cpplint对代码风格的检测，如果代码风格不符合要求，编译将中止。**
 
 **运行单元测试**：
 ```
 cd  build
-make test
+mingw32-make test
 ```
 
 **运行单元测试并得到代码覆盖率**：
 ```
 cd build
-make unit_test_coverage
+mingw32-make unit_test_coverage
 ```
 
 1. 点击`开始考试`。
@@ -86,7 +86,7 @@ make unit_test_coverage
 6. `git add .`。
 7. `git commit -m "Initial commit"`。
 8. `git push -u origin master`。
-9. 接着答题，开发环境及验证方式见下文。
+9. 接着答题。
 10. 本地验证无误后，push到远程仓库，并将git地址提交到科举。
 11. 提交之后等待科举出考试结果。
 
