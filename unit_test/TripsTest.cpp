@@ -29,7 +29,7 @@ TEST(TripsTest, test_one_valid_line)
     test_file.close();
 
     Trips ts(VALID_INPUT_FILE);
-    ASSERT_TRUE(ts.to_string() == "收费6元\n");
+    ASSERT_TRUE(ts.to_string() == "收费7元\n");
 }
 
 TEST(TripsTest, test_four_valid_lines) 
