@@ -4,8 +4,7 @@
 #include "trips.h"
 #include "trip_factory.h"
 
-Trips::Trips() {
-}
+Trips::Trips();
 
 Trips::Trips(std::string path_to_records) {
     read_records(path_to_records);
