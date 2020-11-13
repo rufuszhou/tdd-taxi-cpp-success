@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "trip.cpp"
+#include "trip.h"
 
 TEST(BasicTripTest, test_default)
 {

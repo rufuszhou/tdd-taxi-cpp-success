@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "trips.cpp"
+#include "trips.h"
 
 #define NON_EXIST_INPUT_FILE "./RANDOM_FILE_NAME_ASDFASDFASFAQFQWASDVW.txt"
 #define VALID_INPUT_FILE "./TripsTestValidInput.txt"

@@ -1,12 +1,18 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.10.0)
 SET(CMAKE_PREFIX_PATH "/mingw64" ${CMAKE_PREFIX_PATH})
 find_package(GTest REQUIRED)
 include(GoogleTest)
-include_directories(../src  ${GTEST_INCLUDE_DIRS})
+include_directories( ./ ../src  ${GTEST_INCLUDE_DIRS})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
-file(GLOB unit_test_src "*.cpp")
+file(GLOB all_src "*.cpp" "*.hpp" "*.hxx" "*.cxx" "*.h++" "*.c++" "../src/*.cpp" "../src/*.hpp" "../src/*.hxx" "../src/*.cxx" "../src/*.h++" "../src/*.c++" )
+set(unit_test_src)
+foreach(f ${all_src})
+    if(NOT f MATCHES "main.cpp")
+        list(APPEND unit_test_src ${f})
+    endif()
+endforeach()
 
 add_executable(unit_test ${unit_test_src})
 

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "trip_factory.cpp"
+#include "trip_factory.h"
 
 TEST(TripFactoryTest, test_create_1)
 {
