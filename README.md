@@ -38,23 +38,52 @@
 
 #### Windows下基于MinGW64搭建开发环境
 
-1. 安装
-下载[MSYS2](https://www.msys2.org/)，建议选择64位的版本。安装路径选择默认选项`C:\msys64\`  
-*如果选择32位的版本，下面的命令中也都需要相应选择32位的版本*
+1. 下载MSYS2，64位的版本
+选择任一镜像下载：
+- 清华大学镜像：https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe
+- 中科大镜像：    http://mirrors.ustc.edu.cn/msys2/distrib/msys2-x86_64-latest.exe
 
-2. 安装所需工具
-- 等待安装完成后，进入`C:\msys64`，点击`mingw64.exe`启动命令行
-- 执行`pacman -Syu`
-看到提示:: Proceed with installation? [Y/n]后回车，等待命令执行完后，看到如下提示后关闭命令行窗口
-```
+2. 安装
+- 安装路径选择默认选项C:\msys64
+- 安装完成时不要勾选立即运行 MSYS2 64bit
+
+3. 添加国内镜像源 
+- 编辑 C:\msys64\etc\pacman.d\mirrorlist.mingw32 ，在文件开头添加：
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/i686
+Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686
+- 编辑C:\msys64\etc\pacman.d\mirrorlist.mingw64, 在文件开头添加：
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/x86_64
+Server = http://mirrors.ustc.edu.cn/msys2/mingw/x86_64
+- 编辑C:\msys64\etc\pacman.d\mirrorlist.msys，在文件开头添加：
+Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/msys/$arch
+Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
+
+4. 安装C++开发所需工具
+- 等待安装完成后，进入C:\msys64，点击mingw64.exe启动命令行
+- 执行pacman -Syu，
+看到提示:: Proceed with installation? [Y/n]后回车，等待命令执行完后，看到如下提示
 warning: terminate MSYS2 without returning to shell and check for updates again
 warning: for example close your terminal window instead of calling exit
-```
-- 点击`mingw64.exe`重新打开
-- `pacman -Su`，看到提示`:: Proceed with installation? [Y/n]` 回车，等待命令执行完毕。
-- `pacman -S mingw-w64-x86_64-gtest mingw-w64-x86_64-toolchain  mingw-w64-x86_64-cmake mingw-w64-x86_64-cotire mingw-w64-x86_64-extra-cmake-modules git  mingw-w64-x86_64-python-pip mingw-w64-x86_64-python mingw-w64-x86_64-gcc mingw-w64-x86_64-libxml2 mingw-w64-x86_64-lcov mingw-w64-x86_64-python-lxml`
-看到提示:: Proceed with installation? [Y/n] 回车
-- `pip install cpplint gcovr`
+关闭命令行窗口
+
+- 重复上述第3步，再次添加国内镜像
+
+- 点击mingw64.exe重新打开
+
+- 运行pacman -Su，看到提示:: Proceed with installation? [Y/n] ，回车，等待命令执行完毕。
+
+- 运行pacman -S mingw-w64-x86_64-gtest mingw-w64-x86_64-toolchain  mingw-w64-x86_64-cmake mingw-w64-x86_64-cotire mingw-w64-x86_64-extra-cmake-modules git  mingw-w64-x86_64-python-pip mingw-w64-x86_64-python mingw-w64-x86_64-gcc mingw-w64-x86_64-libxml2  mingw-w64-x86_64-python-lxml
+     看到提示:: Enter a selection (default=all)，回车
+     看到提示:: Proceed with installation? [Y/n]，回车
+
+- 手动安装 mingw-w64-x86_64-lcov
+
+首先到镜像服务器 https://mirrors.tuna.tsinghua.edu.cn/msys2/mingw/x86_64/ 页面上查找该库(可以在该页面打开后，ctrl+F，然后输入mingw-w64-x86_64-lcov搜索)，找到对应的包: mingw-w64-x86_64-lcov-1.14-2-any.pkg.tar.xz, 下载之后使用解压缩软件解压，将解压后的.\mingw64\bin目录下的所有文件拷贝到C:\msys64\mingw64\bin目录下即可。
+
+     
+pip install cpplint gcovr -ihttps://pypi.tuna.tsinghua.edu.cn/simple
+如果提示pip命令找不到，需要执行export PATH=$PATH:/c/msys64/mingw64/bin
+
 
 #### 编译命令
 **编译**： 
