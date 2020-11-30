@@ -90,7 +90,7 @@ pip install cpplint gcovr -ihttps://pypi.tuna.tsinghua.edu.cn/simple
 ```
 mkdir build
 cd build
-cmake ..
+cmake -G "MinGW Makefiles" ..
 mingw32-make
 ```
 注意： **编译过程中已经集成了cpplint对代码风格的检测，如果代码风格不符合要求，编译将中止。**
